@@ -476,10 +476,11 @@ a:hover {
   }
 
   .entries > li,
-  .pub {
-    flex-direction: column;
-    gap: 6px;
-  }
+.pub {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
 
   .when {
     flex-basis: auto;
@@ -487,7 +488,11 @@ a:hover {
 
   .pub-thumb {
   flex: 0 0 auto;
-  width: 140px;
-  height: 105px;
+  width: 120px;
+  height: 82px;
+}
+
+.pub .what {
+  width: 100%;
 }
 }
