@@ -1,659 +1,1131 @@
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Chae Min Lee</title>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <meta name="author" content="Chae Min Lee">
-    <meta name="description" content="Chae Min Lee — Integrated M.S./Ph.D. student at Yonsei University College of Medicine, working on multimodal machine learning for multi-scale biomedical data integration.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chae Min Lee</title>
 
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=2">
+  <meta name="author" content="Chae Min Lee">
+  <meta
+    name="description"
+    content="Chae Min Lee — Integrated M.S./Ph.D. student at Yonsei University College of Medicine, working on multimodal machine learning for multi-scale biomedical data integration."
+  >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Peer-review journal badges -->
-    <style>
-      .review-journals {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 7px;
-        margin-top: 8px;
-      }
+  <link
+    rel="shortcut icon"
+    href="images/favicon/favicon.ico"
+    type="image/x-icon"
+  >
 
-      .review-journal {
-        display: inline-block;
-        padding: 4px 10px;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        background: var(--chip-bg);
-        color: var(--chip-text);
-        font-size: 12.5px;
-        line-height: 1.4;
-      }
-    </style>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="stylesheet.css?v=2"
+  >
 
-    <script>
-      // Apply the saved theme before first paint to avoid a flash.
-      (function () {
-        try {
-          var saved = localStorage.getItem('theme');
-          if (saved === 'dark' || saved === 'light') {
-            document.documentElement.setAttribute('data-theme', saved);
-          }
-        } catch (e) {
-          /* storage unavailable — fall back to system preference */
+  <style>
+
+    /* ============================================================
+       Alternating section backgrounds
+       Education          → light blue
+       Publications       → white
+       Honors & Awards    → light blue
+       Teaching & Service → white
+       Patents & Licenses → light blue
+       ============================================================ */
+
+    .page > section.section:nth-of-type(odd) {
+      background: #f5f8fc;
+    }
+
+    .page > section.section:nth-of-type(even) {
+      background: #ffffff;
+    }
+
+
+    /* ============================================================
+       Peer-review journal badges
+       ============================================================ */
+
+    .review-journals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .review-journal {
+      display: inline-block;
+
+      padding: 4px 10px;
+
+      background: var(--chip-bg, #eef4fb);
+      color: var(--chip-text, #064f91);
+
+      border: 1px solid var(--border, #d7e1ec);
+      border-radius: 8px;
+
+      font-size: 12.5px;
+      line-height: 1.4;
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        border-color 0.15s ease,
+        filter 0.15s ease;
+    }
+
+    .review-journal:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      filter: brightness(0.97);
+      text-decoration: none;
+    }
+
+    .review-journal:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+
+    /* ============================================================
+       Dark mode
+       ============================================================ */
+
+    [data-theme="dark"] .page > section.section:nth-of-type(odd) {
+      background: #18212b;
+    }
+
+    [data-theme="dark"] .page > section.section:nth-of-type(even) {
+      background: #121821;
+    }
+
+    [data-theme="dark"] .review-journal {
+      background: var(--chip-bg, #1d2a38);
+      color: var(--chip-text, #9cc7f4);
+      border-color: var(--border, #314152);
+    }
+
+    [data-theme="dark"] .review-journal:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.25);
+    }
+
+  </style>
+
+
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
         }
-      })();
-    </script>
-  </head>
 
-  <body>
+      } catch (e) {
+        /* storage unavailable — fall back to system preference */
+      }
+    })();
+  </script>
 
-    <button
-      class="theme-toggle"
-      id="theme-toggle"
-      type="button"
-      aria-label="Toggle dark mode"
-      title="Toggle dark mode"
-    >
-      &#9789;
-    </button>
+</head>
 
-    <div class="page">
 
-      <!-- ============================= Header ============================= -->
+<body>
 
-      <header class="header">
+  <button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="Toggle dark mode"
+    title="Toggle dark mode"
+  >
+    &#9789;
+  </button>
 
-        <div class="header-text">
 
-          <p class="name">Chae Min Lee</p>
+  <div class="page">
 
-          <p class="tagline">
-            Integrated M.S./Ph.D. student &middot; Yonsei University College of Medicine
-          </p>
 
-          <p class="intro">
-            I am an integrated M.S./Ph.D. student in the Department of Medical Science at Yonsei University College of
-            Medicine (Genomics and Data Sciences track), advised by
-            <a href="https://sites.google.com/view/fang-lab/members/pi-sungsoon-fang">
-              Prof. Sungsoon Fang
-            </a>.
-            My research is on
-            <strong>multimodal machine learning for multi-scale biomedical data integration</strong>,
-            linking molecular profiles with imaging and tissue-level phenotypes to improve disease stratification and
-            biological understanding. Trained as a registered nurse, I aim to build translational AI that connects
-            computational modeling to patient-relevant applications.
-          </p>
+    <!-- ============================= Header ============================= -->
 
-          <nav class="links">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dlcoals811@yonsei.ac.kr">Email</a>
-            <a href="data/cv.pdf">CV</a>
-            <a href="https://scholar.google.com/citations?user=N3buo7wAAAAJ&hl=ko&oi=ao">Google Scholar</a>
-            <a href="https://github.com/222222spam/">GitHub</a>
-            <a href="https://orcid.org/0009-0008-7290-4304">ORCID</a>
-            <a href="https://www.webofscience.com/wos/author/record/QJV-3539-2026">Web of Science</a>
-          </nav>
+    <header class="header">
 
-        </div>
+      <div class="header-text">
 
-        <div class="header-photo">
-          <a href="images/avatar.jpg">
-            <img alt="Chae Min Lee" src="images/avatar.jpg">
+        <p class="name">
+          Chae Min Lee
+        </p>
+
+        <p class="tagline">
+          Integrated M.S./Ph.D. student &middot;
+          Yonsei University College of Medicine
+        </p>
+
+        <p class="intro">
+          I am an integrated M.S./Ph.D. student in the Department of Medical Science
+          at Yonsei University College of Medicine (Genomics and Data Sciences track),
+          advised by
+          <a href="https://sites.google.com/view/fang-lab/members/pi-sungsoon-fang">
+            Prof. Sungsoon Fang
+          </a>.
+          My research is on
+          <strong>
+            multimodal machine learning for multi-scale biomedical data integration
+          </strong>,
+          linking molecular profiles with imaging and tissue-level phenotypes to improve
+          disease stratification and biological understanding. Trained as a registered
+          nurse, I aim to build translational AI that connects computational modeling
+          to patient-relevant applications.
+        </p>
+
+
+        <nav class="links">
+
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dlcoals811@yonsei.ac.kr">
+            Email
           </a>
-        </div>
 
-      </header>
+          <a href="data/cv.pdf">
+            CV
+          </a>
 
+          <a href="https://scholar.google.com/citations?user=N3buo7wAAAAJ&hl=ko&oi=ao">
+            Google Scholar
+          </a>
 
-      <!-- ============================ Education =========================== -->
+          <a href="https://github.com/222222spam/">
+            GitHub
+          </a>
 
-      <section class="section">
+          <a href="https://orcid.org/0009-0008-7290-4304">
+            ORCID
+          </a>
 
-        <h2>Education</h2>
+          <a href="https://www.webofscience.com/wos/author/record/QJV-3539-2026">
+            Web of Science
+          </a>
 
-        <ul class="entries">
+        </nav>
 
-          <li>
-            <div class="when">Mar 2023 &ndash; Present</div>
-
-            <div class="what">
-              <div class="title">
-                Integrated M.S./Ph.D., Department of Medical Science
-              </div>
-
-              <div class="where">
-                Yonsei University College of Medicine, Seoul, Korea
-              </div>
-
-              <div class="detail">
-                Genomics and Data Sciences track &middot; Supervisor: Prof. Sungsoon Fang
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">Sep 2021 &ndash; Feb 2023</div>
-
-            <div class="what">
-              <div class="title">
-                B.E., Department of Biotechnology (double major)
-              </div>
-
-              <div class="where">
-                Yonsei University College of Life Science and Biotechnology, Seoul, Korea
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">Mar 2017 &ndash; Feb 2023</div>
-
-            <div class="what">
-              <div class="title">
-                R.N., Department of Nursing
-              </div>
-
-              <div class="where">
-                Yonsei University College of Nursing, Seoul, Korea
-              </div>
-            </div>
-          </li>
-
-        </ul>
-
-      </section>
+      </div>
 
 
-      <!-- ========================== Publications ========================== -->
+      <div class="header-photo">
 
-      <section class="section">
+        <a href="images/avatar.jpg">
+          <img
+            alt="Chae Min Lee"
+            src="images/avatar.jpg"
+          >
+        </a>
 
-        <h2>Publications</h2>
+      </div>
 
-        <p><sup>*</sup> Equal contribution</p>
+    </header>
 
 
-        <!-- ==================== 2026 ==================== -->
 
-        <article class="pub">
+    <!-- ============================ Education =========================== -->
 
-          <div class="pub-thumb">
-            <span class="venue">Experimental &amp;<br>Molecular Medicine</span>
-            <span class="year">2026</span>
+    <section class="section">
+
+      <h2>Education</h2>
+
+      <ul class="entries">
+
+
+        <li>
+
+          <div class="when">
+            Mar 2023 &ndash; Present
           </div>
 
           <div class="what">
 
-            <div class="pub-title">
-              SMRT regulation of nuclear receptors orchestrates bile acid homeostasis
+            <div class="title">
+              Integrated M.S./Ph.D., Department of Medical Science
             </div>
 
-            <div class="pub-authors">
-              Kyeongkyu Kim, Sungsoon Fang, Suk-Hyun Hong, Han Cho, Mathias Leblanc,
-              Sandra Jacinto, Bernd Schnabl, Annette R. Atkins, Ruth T. Yu,
-              Christopher Liddle, Morgan L. Truitt, Weiwei Fan,
-              <span class="me">Chae Min Lee</span>, Michael Downes, Ronald M. Evans
+            <div class="where">
+              Yonsei University College of Medicine, Seoul, Korea
             </div>
 
-            <div class="pub-venue">
-              Experimental &amp; Molecular Medicine, 2026
-            </div>
-
-            <div class="pub-links">
-              <a href="https://www.nature.com/articles/s12276-026-01823-y">paper</a>
+            <div class="detail">
+              Genomics and Data Sciences track &middot;
+              Supervisor: Prof. Sungsoon Fang
             </div>
 
           </div>
 
-        </article>
+        </li>
 
 
-        <article class="pub">
+        <li>
 
-          <div class="pub-thumb">
-            <span class="venue">Cell Death<br>Discovery</span>
-            <span class="year">2026</span>
+          <div class="when">
+            Sep 2021 &ndash; Feb 2023
           </div>
 
           <div class="what">
 
-            <div class="pub-title">
-              Endothelial cell senescence shapes T cell activity in late-stage of chronic obstructive pulmonary disease
+            <div class="title">
+              B.E., Department of Biotechnology (double major)
             </div>
 
-            <div class="pub-authors">
-              <span class="me">Chae Min Lee</span><sup>*</sup>,
-              Jongchan Kim<sup>*</sup>, Junhyup Song, Andrew Sehoon Kim,
-              Sugyeong Jo, Nahee Hwang, Jae Woong Jeong, Minki Kim,
-              Sung Jae Shin, Sungsoon Fang, Bo Kyung Yoon
-            </div>
-
-            <div class="pub-venue">
-              Cell Death Discovery, 2026
-            </div>
-
-            <div class="pub-links">
-              <a href="https://www.nature.com/articles/s41420-026-03020-2">paper</a>
+            <div class="where">
+              Yonsei University College of Life Science and Biotechnology,
+              Seoul, Korea
             </div>
 
           </div>
 
-        </article>
+        </li>
 
 
-        <!-- ==================== 2025 ==================== -->
+        <li>
 
-        <article class="pub">
-
-          <div class="pub-thumb">
-            <span class="venue">FASEB<br>Journal</span>
-            <span class="year">2025</span>
+          <div class="when">
+            Mar 2017 &ndash; Feb 2023
           </div>
 
           <div class="what">
 
-            <div class="pub-title">
-              Spatial Myeloid Landscape of Large Artery Atherosclerotic and Cardioembolic Thrombi Retrieved by Mechanical Thrombectomy
+            <div class="title">
+              R.N., Department of Nursing
             </div>
 
-            <div class="pub-authors">
-              Sugyeong Jo, Taedong Ok, <span class="me">Chae Min Lee</span>,
-              Jae Woong Jeong, Yun Ju Lee, Sung Jae Shin, Sungsoon Fang,
-              Kyung-Yul Lee, Bo Kyung Yoon
-            </div>
-
-            <div class="pub-venue">
-              FASEB Journal, 2025
-            </div>
-
-            <div class="pub-links">
-              <a href="https://faseb.onlinelibrary.wiley.com/doi/10.1096/fj.202501658RR">paper</a>
+            <div class="where">
+              Yonsei University College of Nursing, Seoul, Korea
             </div>
 
           </div>
 
-        </article>
+        </li>
 
 
-        <article class="pub">
+      </ul>
 
-          <div class="pub-thumb">
-            <span class="venue">Yonsei Medical<br>Journal</span>
-            <span class="year">2025</span>
-          </div>
+    </section>
 
-          <div class="what">
 
-            <div class="pub-title">
-              Dynamics of T Cell-Mediated Immune Signaling Network During Pathogenesis of Chronic Obstructive Pulmonary Disease
-            </div>
 
-            <div class="pub-authors">
-              <span class="me">Chae Min Lee</span><sup>*</sup>,
-              Andrew Sehoon Kim<sup>*</sup>, Minki Kim, Jae Woong Jeong,
-              Sugyeong Jo, Nahee Hwang, Sungsoon Fang
-            </div>
+    <!-- ========================== Publications ========================== -->
 
-            <div class="pub-venue">
-              Yonsei Medical Journal, 2025
-            </div>
+    <section class="section">
 
-            <div class="pub-links">
-              <a href="https://eymj.org/DOIx.php?id=10.3349/ymj.2024.0227">paper</a>
-            </div>
+      <h2>Publications</h2>
 
-          </div>
-
-        </article>
-
-
-        <!-- ==================== 2024 ==================== -->
-
-        <article class="pub">
-
-          <div class="pub-thumb">
-            <span class="venue">Experimental &amp;<br>Molecular Medicine</span>
-            <span class="year">2024</span>
-          </div>
-
-          <div class="what">
-
-            <div class="pub-title">
-              PHGDH: a novel therapeutic target in cancer
-            </div>
-
-            <div class="pub-authors">
-              <span class="me">Chae Min Lee</span>, Yeseong Hwang,
-              Minki Kim, Ye-Chan Park, Hyeonhui Kim, Sungsoon Fang
-            </div>
-
-            <div class="pub-venue">
-              Experimental &amp; Molecular Medicine, 2024
-            </div>
-
-            <div class="pub-links">
-              <a href="https://www.nature.com/articles/s12276-024-01268-1">paper</a>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <article class="pub">
-
-          <div class="pub-thumb">
-            <span class="venue">Cell Death<br>Discovery</span>
-            <span class="year">2024</span>
-          </div>
-
-          <div class="what">
-
-            <div class="pub-title">
-              BRCA1 mutation promotes sprouting angiogenesis in inflammatory cancer-associated fibroblast of triple-negative breast cancer
-            </div>
-
-            <div class="pub-authors">
-              <span class="me">Chae Min Lee</span><sup>*</sup>,
-              Yeseong Hwang<sup>*</sup>, Jae Woong Jeong, Minki Kim,
-              Janghee Lee, Soong June Bae, Sung Gwe Ahn, Sungsoon Fang
-            </div>
-
-            <div class="pub-venue">
-              Cell Death Discovery, 2024
-            </div>
-
-            <div class="pub-links">
-              <a href="https://www.nature.com/articles/s41420-023-01768-5">paper</a>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- ==================== 2023 ==================== -->
-
-        <article class="pub">
-
-          <div class="pub-thumb">
-            <span class="venue">J Obes Metab<br>Syndr</span>
-            <span class="year">2023</span>
-          </div>
-
-          <div class="what">
-
-            <div class="pub-title">
-              Fat Biology in Triple-Negative Breast Cancer: Immune Regulation, Fibrosis, and Senescence
-            </div>
-
-            <div class="pub-authors">
-              <span class="me">Chae Min Lee</span>, Sungsoon Fang
-            </div>
-
-            <div class="pub-venue">
-              Journal of Obesity &amp; Metabolic Syndrome, 2023
-            </div>
-
-            <div class="pub-links">
-              <a href="https://www.jomes.org/journal/view.html?doi=10.7570/jomes23044">paper</a>
-            </div>
-
-          </div>
-
-        </article>
-
-      </section>
-
-
-      <!-- ========================= Honors & Awards ======================== -->
-
-      <section class="section">
-
-        <h2>Honors &amp; Awards</h2>
-
-        <ul class="entries">
-
-          <li>
-            <div class="when">2026</div>
-
-            <div class="what">
-              <div class="title">
-                KALAS Student Research Award
-              </div>
-
-              <div class="where">
-                Korean Association for Laboratory Animal Science (KALAS)
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">2026</div>
-
-            <div class="what">
-              <div class="title">
-                Outstanding Poster Award, 3rd Place
-              </div>
-
-              <div class="where">
-                8th KMPC&ndash;KSBMB Energy Metabolism Division Camp
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">2026</div>
-
-            <div class="what">
-              <div class="title">
-                Selected Oral Presenter, Young Scientists Session
-              </div>
-
-              <div class="where">
-                8th KMPC&ndash;KSBMB Energy Metabolism Division Camp
-              </div>
-            </div>
-          </li>
-
-        </ul>
-
-      </section>
-
-
-      <!-- ======================== Teaching & Service ====================== -->
-
-      <section class="section">
-
-        <h2>Teaching &amp; Service</h2>
-
-        <ul class="entries">
-
-          <li>
-            <div class="when">Mar 2025 &ndash; Present</div>
-
-            <div class="what">
-              <div class="title">
-                LT (learn-by-teaching) Lecturer &mdash; Joint Seminar (MES6060.01-00)
-              </div>
-
-              <div class="where">
-                Yonsei University College of Medicine, Seoul, Korea
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">Mar 2026 &ndash; Present</div>
-
-            <div class="what">
-              <div class="title">
-                Graduate Student Representative, Department of Medical Science
-              </div>
-
-              <div class="where">
-                Yonsei University College of Medicine, Seoul, Korea
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">2026</div>
-
-            <div class="what">
-
-              <div class="title">
-                Ad hoc Peer Reviewer
-              </div>
-
-              <div class="review-journals">
-
-                <span class="review-journal">
-                  Clinical and Translational Discovery
-                </span>
-
-                <span class="review-journal">
-                  Clinical and Translational Medicine
-                </span>
-
-                <span class="review-journal">
-                  International Journal of Chronic Obstructive Pulmonary Disease
-                </span>
-
-                <span class="review-journal">
-                  Journal of Multidisciplinary Healthcare
-                </span>
-
-                <span class="review-journal">
-                  Medicinal Research Reviews
-                </span>
-
-              </div>
-
-            </div>
-          </li>
-
-        </ul>
-
-      </section>
-
-
-      <!-- ======================== Patents & Licenses ====================== -->
-
-      <section class="section">
-
-        <h2>Patents &amp; Licenses</h2>
-
-        <ul class="entries">
-
-          <li>
-            <div class="when">Patent</div>
-
-            <div class="what">
-              <div class="title">
-                Hospital Fall Prevention Wheelchair
-              </div>
-
-              <div class="where">
-                Korean patent publication &middot; Application no. 10-2023-0017198
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">License</div>
-
-            <div class="what">
-              <div class="title">
-                Registered Nurse (R.N.)
-              </div>
-
-              <div class="where">
-                Korean Ministry of Health and Welfare
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="when">License</div>
-
-            <div class="what">
-              <div class="title">
-                NCLEX-RN
-              </div>
-
-              <div class="where">
-                In progress
-              </div>
-            </div>
-          </li>
-
-        </ul>
-
-      </section>
-
-
-      <p class="footer">
-        &copy; Chae Min Lee
+      <p>
+        <sup>*</sup> Equal contribution
       </p>
 
-    </div>
 
 
-    <script>
-      (function () {
+      <!-- ==================== 2026 ==================== -->
 
-        var button = document.getElementById('theme-toggle');
-        var root = document.documentElement;
 
-        var SUN = '☀';
-        var MOON = '☽';
+      <article class="pub">
 
-        function currentTheme() {
-          var explicit = root.getAttribute('data-theme');
+        <div class="pub-thumb">
 
-          if (explicit) {
-            return explicit;
-          }
+          <span class="venue">
+            Experimental &amp;<br>
+            Molecular Medicine
+          </span>
 
-          return window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light';
+          <span class="year">
+            2026
+          </span>
+
+        </div>
+
+
+        <div class="what">
+
+          <div class="pub-title">
+            SMRT regulation of nuclear receptors orchestrates bile acid homeostasis
+          </div>
+
+
+          <div class="pub-authors">
+
+            Kyeongkyu Kim,
+            Sungsoon Fang,
+            Suk-Hyun Hong,
+            Han Cho,
+            Mathias Leblanc,
+            Sandra Jacinto,
+            Bernd Schnabl,
+            Annette R. Atkins,
+            Ruth T. Yu,
+            Christopher Liddle,
+            Morgan L. Truitt,
+            Weiwei Fan,
+            <span class="me">Chae Min Lee</span>,
+            Michael Downes,
+            Ronald M. Evans
+
+          </div>
+
+
+          <div class="pub-venue">
+            Experimental &amp; Molecular Medicine, 2026
+          </div>
+
+
+          <div class="pub-links">
+
+            <a href="https://www.nature.com/articles/s12276-026-01823-y">
+              paper
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="pub">
+
+        <div class="pub-thumb">
+
+          <span class="venue">
+            Cell Death<br>
+            Discovery
+          </span>
+
+          <span class="year">
+            2026
+          </span>
+
+        </div>
+
+
+        <div class="what">
+
+          <div class="pub-title">
+            Endothelial cell senescence shapes T cell activity in late-stage of chronic obstructive pulmonary disease
+          </div>
+
+
+          <div class="pub-authors">
+
+            <span class="me">Chae Min Lee</span><sup>*</sup>,
+            Jongchan Kim<sup>*</sup>,
+            Junhyup Song,
+            Andrew Sehoon Kim,
+            Sugyeong Jo,
+            Nahee Hwang,
+            Jae Woong Jeong,
+            Minki Kim,
+            Sung Jae Shin,
+            Sungsoon Fang,
+            Bo Kyung Yoon
+
+          </div>
+
+
+          <div class="pub-venue">
+            Cell Death Discovery, 2026
+          </div>
+
+
+          <div class="pub-links">
+
+            <a href="https://www.nature.com/articles/s41420-026-03020-2">
+              paper
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ==================== 2025 ==================== -->
+
+
+      <article class="pub">
+
+        <div class="pub-thumb">
+
+          <span class="venue">
+            FASEB<br>
+            Journal
+          </span>
+
+          <span class="year">
+            2025
+          </span>
+
+        </div>
+
+
+        <div class="what">
+
+          <div class="pub-title">
+            Spatial Myeloid Landscape of Large Artery Atherosclerotic and Cardioembolic
+            Thrombi Retrieved by Mechanical Thrombectomy
+          </div>
+
+
+          <div class="pub-authors">
+
+            Sugyeong Jo,
+            Taedong Ok,
+            <span class="me">Chae Min Lee</span>,
+            Jae Woong Jeong,
+            Yun Ju Lee,
+            Sung Jae Shin,
+            Sungsoon Fang,
+            Kyung-Yul Lee,
+            Bo Kyung Yoon
+
+          </div>
+
+
+          <div class="pub-venue">
+            FASEB Journal, 2025
+          </div>
+
+
+          <div class="pub-links">
+
+            <a href="https://faseb.onlinelibrary.wiley.com/doi/10.1096/fj.202501658RR">
+              paper
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="pub">
+
+        <div class="pub-thumb">
+
+          <span class="venue">
+            Yonsei Medical<br>
+            Journal
+          </span>
+
+          <span class="year">
+            2025
+          </span>
+
+        </div>
+
+
+        <div class="what">
+
+          <div class="pub-title">
+            Dynamics of T Cell-Mediated Immune Signaling Network During Pathogenesis
+            of Chronic Obstructive Pulmonary Disease
+          </div>
+
+
+          <div class="pub-authors">
+
+            <span class="me">Chae Min Lee</span><sup>*</sup>,
+            Andrew Sehoon Kim<sup>*</sup>,
+            Minki Kim,
+            Jae Woong Jeong,
+            Sugyeong Jo,
+            Nahee Hwang,
+            Sungsoon Fang
+
+          </div>
+
+
+          <div class="pub-venue">
+            Yonsei Medical Journal, 2025
+          </div>
+
+
+          <div class="pub-links">
+
+            <a href="https://eymj.org/DOIx.php?id=10.3349/ymj.2024.0227">
+              paper
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ==================== 2024 ==================== -->
+
+
+      <article class="pub">
+
+        <div class="pub-thumb">
+
+          <span class="venue">
+            Experimental &amp;<br>
+            Molecular Medicine
+          </span>
+
+          <span class="year">
+            2024
+          </span>
+
+        </div>
+
+
+        <div class="what">
+
+          <div class="pub-title">
+            PHGDH: a novel therapeutic target in cancer
+          </div>
+
+
+          <div class="pub-authors">
+
+            <span class="me">Chae Min Lee</span>,
+            Yeseong Hwang,
+            Minki Kim,
+            Ye-Chan Park,
+            Hyeonhui Kim,
+            Sungsoon Fang
+
+          </div>
+
+
+          <div class="pub-venue">
+            Experimental &amp; Molecular Medicine, 2024
+          </div>
+
+
+          <div class="pub-links">
+
+            <a href="https://www.nature.com/articles/s12276-024-01268-1">
+              paper
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="pub">
+
+        <div class="pub-thumb">
+
+          <span class="venue">
+            Cell Death<br>
+            Discovery
+          </span>
+
+          <span class="year">
+            2024
+          </span>
+
+        </div>
+
+
+        <div class="what">
+
+          <div class="pub-title">
+            BRCA1 mutation promotes sprouting angiogenesis in inflammatory
+            cancer-associated fibroblast of triple-negative breast cancer
+          </div>
+
+
+          <div class="pub-authors">
+
+            <span class="me">Chae Min Lee</span><sup>*</sup>,
+            Yeseong Hwang<sup>*</sup>,
+            Jae Woong Jeong,
+            Minki Kim,
+            Janghee Lee,
+            Soong June Bae,
+            Sung Gwe Ahn,
+            Sungsoon Fang
+
+          </div>
+
+
+          <div class="pub-venue">
+            Cell Death Discovery, 2024
+          </div>
+
+
+          <div class="pub-links">
+
+            <a href="https://www.nature.com/articles/s41420-023-01768-5">
+              paper
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ==================== 2023 ==================== -->
+
+
+      <article class="pub">
+
+        <div class="pub-thumb">
+
+          <span class="venue">
+            J Obes Metab<br>
+            Syndr
+          </span>
+
+          <span class="year">
+            2023
+          </span>
+
+        </div>
+
+
+        <div class="what">
+
+          <div class="pub-title">
+            Fat Biology in Triple-Negative Breast Cancer:
+            Immune Regulation, Fibrosis, and Senescence
+          </div>
+
+
+          <div class="pub-authors">
+
+            <span class="me">Chae Min Lee</span>,
+            Sungsoon Fang
+
+          </div>
+
+
+          <div class="pub-venue">
+            Journal of Obesity &amp; Metabolic Syndrome, 2023
+          </div>
+
+
+          <div class="pub-links">
+
+            <a href="https://www.jomes.org/journal/view.html?doi=10.7570/jomes23044">
+              paper
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+
+
+    <!-- ========================= Honors & Awards ======================== -->
+
+    <section class="section">
+
+      <h2>Honors &amp; Awards</h2>
+
+
+      <ul class="entries">
+
+
+        <li>
+
+          <div class="when">
+            2026
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              KALAS Student Research Award
+            </div>
+
+            <div class="where">
+              Korean Association for Laboratory Animal Science (KALAS)
+            </div>
+
+          </div>
+
+        </li>
+
+
+
+        <li>
+
+          <div class="when">
+            2026
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              Outstanding Poster Award, 3rd Place
+            </div>
+
+            <div class="where">
+              8th KMPC&ndash;KSBMB Energy Metabolism Division Camp
+            </div>
+
+          </div>
+
+        </li>
+
+
+
+        <li>
+
+          <div class="when">
+            2026
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              Selected Oral Presenter, Young Scientists Session
+            </div>
+
+            <div class="where">
+              8th KMPC&ndash;KSBMB Energy Metabolism Division Camp
+            </div>
+
+          </div>
+
+        </li>
+
+
+      </ul>
+
+    </section>
+
+
+
+    <!-- ======================== Teaching & Service ====================== -->
+
+    <section class="section">
+
+      <h2>Teaching &amp; Service</h2>
+
+
+      <ul class="entries">
+
+
+        <li>
+
+          <div class="when">
+            Mar 2025 &ndash; Present
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              LT (learn-by-teaching) Lecturer &mdash;
+              Joint Seminar (MES6060.01-00)
+            </div>
+
+            <div class="where">
+              Yonsei University College of Medicine, Seoul, Korea
+            </div>
+
+          </div>
+
+        </li>
+
+
+
+        <li>
+
+          <div class="when">
+            Mar 2026 &ndash; Present
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              Graduate Student Representative, Department of Medical Science
+            </div>
+
+            <div class="where">
+              Yonsei University College of Medicine, Seoul, Korea
+            </div>
+
+          </div>
+
+        </li>
+
+
+
+        <li>
+
+          <div class="when">
+            2026
+          </div>
+
+
+          <div class="what">
+
+            <div class="title">
+              Ad hoc Peer Reviewer
+            </div>
+
+
+            <div class="review-journals">
+
+
+              <a
+                class="review-journal"
+                href="https://onlinelibrary.wiley.com/journal/27680622"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Clinical and Translational Discovery
+              </a>
+
+
+              <a
+                class="review-journal"
+                href="https://onlinelibrary.wiley.com/journal/20011326"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Clinical and Translational Medicine
+              </a>
+
+
+              <a
+                class="review-journal"
+                href="https://www.dovepress.com/international-journal-of-chronic-obstructive-pulmonary-disease-journal"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                International Journal of Chronic Obstructive Pulmonary Disease
+              </a>
+
+
+              <a
+                class="review-journal"
+                href="https://www.dovepress.com/journal-of-multidisciplinary-healthcare-journal"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Journal of Multidisciplinary Healthcare
+              </a>
+
+
+              <a
+                class="review-journal"
+                href="https://onlinelibrary.wiley.com/journal/10981128"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Medicinal Research Reviews
+              </a>
+
+
+            </div>
+
+          </div>
+
+        </li>
+
+
+      </ul>
+
+    </section>
+
+
+
+    <!-- ======================== Patents & Licenses ====================== -->
+
+    <section class="section">
+
+      <h2>Patents &amp; Licenses</h2>
+
+
+      <ul class="entries">
+
+
+        <li>
+
+          <div class="when">
+            Patent
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              Hospital Fall Prevention Wheelchair
+            </div>
+
+            <div class="where">
+              Korean patent publication &middot;
+              Application no. 10-2023-0017198
+            </div>
+
+          </div>
+
+        </li>
+
+
+
+        <li>
+
+          <div class="when">
+            License
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              Registered Nurse (R.N.)
+            </div>
+
+            <div class="where">
+              Korean Ministry of Health and Welfare
+            </div>
+
+          </div>
+
+        </li>
+
+
+
+        <li>
+
+          <div class="when">
+            License
+          </div>
+
+          <div class="what">
+
+            <div class="title">
+              NCLEX-RN
+            </div>
+
+            <div class="where">
+              In progress
+            </div>
+
+          </div>
+
+        </li>
+
+
+      </ul>
+
+    </section>
+
+
+
+    <p class="footer">
+      &copy; Chae Min Lee
+    </p>
+
+
+  </div>
+
+
+
+  <script>
+
+    (function () {
+
+      var button = document.getElementById('theme-toggle');
+
+      var root = document.documentElement;
+
+      var SUN = '☀';
+
+      var MOON = '☽';
+
+
+      function currentTheme() {
+
+        var explicit = root.getAttribute('data-theme');
+
+        if (explicit) {
+          return explicit;
         }
 
-        function paintIcon() {
-          button.innerHTML = currentTheme() === 'dark'
+        return window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+
+      }
+
+
+      function paintIcon() {
+
+        button.innerHTML =
+          currentTheme() === 'dark'
             ? SUN
             : MOON;
-        }
 
-        button.addEventListener('click', function () {
+      }
 
-          var next = currentTheme() === 'dark'
+
+      button.addEventListener('click', function () {
+
+        var next =
+          currentTheme() === 'dark'
             ? 'light'
             : 'dark';
 
-          root.setAttribute('data-theme', next);
+        root.setAttribute('data-theme', next);
 
-          try {
-            localStorage.setItem('theme', next);
-          } catch (e) {
-            /* ignore */
-          }
 
-          paintIcon();
-        });
+        try {
 
-        window
-          .matchMedia('(prefers-color-scheme: dark)')
-          .addEventListener('change', paintIcon);
+          localStorage.setItem('theme', next);
+
+        } catch (e) {
+
+          /* ignore */
+
+        }
+
 
         paintIcon();
 
-      })();
-    </script>
+      });
 
-  </body>
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', paintIcon);
+
+
+      paintIcon();
+
+    })();
+
+  </script>
+
+
+</body>
+
 </html>
